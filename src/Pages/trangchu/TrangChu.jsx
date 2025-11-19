@@ -18,7 +18,7 @@ export default function TrangChu() {
           <div className={styles.header_nav}>
             <button
               className={styles.category_btn}
-              onClick={() => navigate("/danh-muc")}
+              onClick={() => navigate("/danhmuc")}
             >
               ☰ Danh mục
             </button>

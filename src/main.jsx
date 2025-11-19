@@ -7,6 +7,7 @@ import TrangChu from "./Pages/trangchu/TrangChu.jsx";
 import { AuthProvider } from "./context/AuthContext.jsx";
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import DanhMuc from "./Pages/danhmuc/DanhMuc.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -17,7 +18,7 @@ createRoot(document.getElementById("root")).render(
 
                     <Route path="/" element={<App />} >
                           <Route index element={<TrangChu />} />
-                        
+                          <Route path="/danhmuc" element={<DanhMuc />} />
                     </Route>
 
               </Routes>
