@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "./Login.css";
+import styles from "./Login.module.css";
 
 export default function Login() {
   const [activeTab, setActiveTab] = useState("register");
@@ -121,30 +121,34 @@ export default function Login() {
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
+    <div className={styles.login_container}>
+      <div className={styles.login_card}>
         {/* Header với logo */}
-        <div className="login-header">
-          <div className="logo-group">
+        <div className={styles.login_header}>
+          <div className={styles.logo_group}>
             <img
               src="https://via.placeholder.com/80"
               alt="FPT ID"
-              className="logo"
+              className={styles.logo}
             />
-            <span className="arrow">⇄</span>
+            <span className={styles.arrow}>⇄</span>
             <img
               src="https://via.placeholder.com/80"
               alt="Shop"
-              className="logo"
+              className={styles.logo}
             />
           </div>
-          <h1 className="login-title">Tài khoản sử dụng mọi dịch vụ 🌐</h1>
+          <h1 className={styles.login_title}>
+            Tài khoản sử dụng mọi dịch vụ 🌐
+          </h1>
         </div>
 
         {/* Tabs */}
-        <div className="tabs-container">
+        <div className={styles.tabs_container}>
           <button
-            className={`tab-button ${activeTab === "register" ? "active" : ""}`}
+            className={`${styles.tab_button} ${
+              activeTab === "register" ? styles.tab_button_active : ""
+            }`}
             onClick={() => {
               setActiveTab("register");
               setErrors({});
@@ -153,7 +157,9 @@ export default function Login() {
             Đăng ký
           </button>
           <button
-            className={`tab-button ${activeTab === "login" ? "active" : ""}`}
+            className={`${styles.tab_button} ${
+              activeTab === "login" ? styles.tab_button_active : ""
+            }`}
             onClick={() => {
               setActiveTab("login");
               setErrors({});
@@ -165,10 +171,13 @@ export default function Login() {
 
         {/* Tab Content */}
         {activeTab === "register" && (
-          <form onSubmit={handleRegisterSubmit} className="form-container">
-            <div className="form-group">
+          <form
+            onSubmit={handleRegisterSubmit}
+            className={styles.form_container}
+          >
+            <div className={styles.form_group}>
               <label htmlFor="fullName">
-                Họ và tên <span className="required">*</span>
+                Họ và tên <span className={styles.required}>*</span>
               </label>
               <input
                 type="text"
@@ -177,16 +186,18 @@ export default function Login() {
                 value={registerData.fullName}
                 onChange={handleRegisterChange}
                 placeholder="Nhập họ và tên"
-                className={`input-field ${errors.fullName ? "error" : ""}`}
+                className={`${styles.input_field} ${
+                  errors.fullName ? styles.input_field_error : ""
+                }`}
               />
               {errors.fullName && (
-                <span className="error-text">{errors.fullName}</span>
+                <span className={styles.error_text}>{errors.fullName}</span>
               )}
             </div>
 
-            <div className="form-group">
+            <div className={styles.form_group}>
               <label htmlFor="registerEmail">
-                Email <span className="required">*</span>
+                Email <span className={styles.required}>*</span>
               </label>
               <input
                 type="email"
@@ -195,16 +206,18 @@ export default function Login() {
                 value={registerData.email}
                 onChange={handleRegisterChange}
                 placeholder="Nhập email"
-                className={`input-field ${errors.email ? "error" : ""}`}
+                className={`${styles.input_field} ${
+                  errors.email ? styles.input_field_error : ""
+                }`}
               />
               {errors.email && (
-                <span className="error-text">{errors.email}</span>
+                <span className={styles.error_text}>{errors.email}</span>
               )}
             </div>
 
-            <div className="form-group">
+            <div className={styles.form_group}>
               <label htmlFor="registerPassword">
-                Mật khẩu <span className="required">*</span>
+                Mật khẩu <span className={styles.required}>*</span>
               </label>
               <input
                 type="password"
@@ -213,52 +226,54 @@ export default function Login() {
                 value={registerData.password}
                 onChange={handleRegisterChange}
                 placeholder="Nhập mật khẩu (tối thiểu 6 ký tự)"
-                className={`input-field ${errors.password ? "error" : ""}`}
+                className={`${styles.input_field} ${
+                  errors.password ? styles.input_field_error : ""
+                }`}
               />
               {errors.password && (
-                <span className="error-text">{errors.password}</span>
+                <span className={styles.error_text}>{errors.password}</span>
               )}
             </div>
 
-            <button type="submit" className="submit-button">
+            <button type="submit" className={styles.submit_button}>
               Đăng ký
             </button>
 
-            <div className="divider">
+            <div className={styles.divider}>
               <span>Hoặc đăng ký bằng</span>
             </div>
 
-            <div className="social-buttons">
-              <button type="button" className="social-button qr">
+            <div className={styles.social_buttons}>
+              <button type="button" className={styles.social_button}>
                 📱
               </button>
-              <button type="button" className="social-button fingerprint">
+              <button type="button" className={styles.social_button}>
                 👆
               </button>
-              <button type="button" className="social-button apple">
+              <button type="button" className={styles.social_button}>
                 🍎
               </button>
-              <button type="button" className="social-button google">
+              <button type="button" className={styles.social_button}>
                 🔎
               </button>
-              <button type="button" className="social-button facebook">
+              <button type="button" className={styles.social_button}>
                 📘
               </button>
             </div>
 
-            <p className="note">
+            <p className={styles.note}>
               Bằng cách tiếp tục, bạn đồng ý với{" "}
-              <span className="link">Điều khoản</span> và{" "}
-              <span className="link">Chính sách</span> bảo mật của FPT ID
+              <span className={styles.link}>Điều khoản</span> và{" "}
+              <span className={styles.link}>Chính sách</span> bảo mật của FPT ID
             </p>
           </form>
         )}
 
         {activeTab === "login" && (
-          <form onSubmit={handleLoginSubmit} className="form-container">
-            <div className="form-group">
+          <form onSubmit={handleLoginSubmit} className={styles.form_container}>
+            <div className={styles.form_group}>
               <label htmlFor="loginEmail">
-                Email <span className="required">*</span>
+                Email <span className={styles.required}>*</span>
               </label>
               <input
                 type="email"
@@ -267,16 +282,18 @@ export default function Login() {
                 value={loginData.email}
                 onChange={handleLoginChange}
                 placeholder="Nhập email"
-                className={`input-field ${errors.email ? "error" : ""}`}
+                className={`${styles.input_field} ${
+                  errors.email ? styles.input_field_error : ""
+                }`}
               />
               {errors.email && (
-                <span className="error-text">{errors.email}</span>
+                <span className={styles.error_text}>{errors.email}</span>
               )}
             </div>
 
-            <div className="form-group">
+            <div className={styles.form_group}>
               <label htmlFor="loginPassword">
-                Mật khẩu <span className="required">*</span>
+                Mật khẩu <span className={styles.required}>*</span>
               </label>
               <input
                 type="password"
@@ -285,43 +302,45 @@ export default function Login() {
                 value={loginData.password}
                 onChange={handleLoginChange}
                 placeholder="Nhập mật khẩu"
-                className={`input-field ${errors.password ? "error" : ""}`}
+                className={`${styles.input_field} ${
+                  errors.password ? styles.input_field_error : ""
+                }`}
               />
               {errors.password && (
-                <span className="error-text">{errors.password}</span>
+                <span className={styles.error_text}>{errors.password}</span>
               )}
             </div>
 
-            <button type="submit" className="submit-button">
+            <button type="submit" className={styles.submit_button}>
               Đăng nhập
             </button>
 
-            <div className="divider">
+            <div className={styles.divider}>
               <span>Hoặc đăng nhập bằng</span>
             </div>
 
-            <div className="social-buttons">
-              <button type="button" className="social-button qr">
+            <div className={styles.social_buttons}>
+              <button type="button" className={styles.social_button}>
                 📱
               </button>
-              <button type="button" className="social-button fingerprint">
+              <button type="button" className={styles.social_button}>
                 👆
               </button>
-              <button type="button" className="social-button apple">
+              <button type="button" className={styles.social_button}>
                 🍎
               </button>
-              <button type="button" className="social-button google">
+              <button type="button" className={styles.social_button}>
                 🔎
               </button>
-              <button type="button" className="social-button facebook">
+              <button type="button" className={styles.social_button}>
                 📘
               </button>
             </div>
 
-            <p className="note">
+            <p className={styles.note}>
               Bằng cách tiếp tục, bạn đồng ý với{" "}
-              <span className="link">Điều khoản</span> và{" "}
-              <span className="link">Chính sách</span> bảo mật của FPT ID
+              <span className={styles.link}>Điều khoản</span> và{" "}
+              <span className={styles.link}>Chính sách</span> bảo mật của FPT ID
             </p>
           </form>
         )}

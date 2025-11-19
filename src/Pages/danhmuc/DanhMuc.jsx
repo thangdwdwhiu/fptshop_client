@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import "./DanhMuc.css";
+import styles from "./DanhMuc.module.css";
 
 export default function DanhMuc() {
   const navigate = useNavigate();
@@ -16,48 +16,50 @@ export default function DanhMuc() {
   ];
 
   return (
-    <div className="danhmuc-container">
+    <div className={styles.danhmuc_container}>
       {/* Header */}
-      <header className="header">
-        <div className="header-top">
-          <div className="logo">
-            <button onClick={() => navigate("/")} className="logo-btn">
+      <header className={styles.header}>
+        <div className={styles.header_top}>
+          <div className={styles.logo}>
+            <button onClick={() => navigate("/")} className={styles.logo_btn}>
               <img
                 src="https://via.placeholder.com/120x40/DC143C/ffffff?text=FPT+Shop"
                 alt="FPT Shop"
               />
             </button>
           </div>
-          <div className="header-nav">
-            <button className="category-btn active">☰ Danh mục</button>
+          <div className={styles.header_nav}>
+            <button className={`${styles.category_btn} ${styles.active}`}>
+              ☰ Danh mục
+            </button>
             <input
               type="text"
               placeholder="Nhập tên điện thoại, laptop, phụ kiện... cần tìm"
-              className="search-input"
+              className={styles.search_input}
             />
-            <button className="search-btn">🔍</button>
+            <button className={styles.search_btn}>🔍</button>
           </div>
-          <div className="header-right">
-            <button className="account-btn">👤</button>
-            <button className="cart-btn">🛒 Giỏ hàng</button>
+          <div className={styles.header_right}>
+            <button className={styles.account_btn}>👤</button>
+            <button className={styles.cart_btn}>🛒 Giỏ hàng</button>
           </div>
         </div>
 
-        <div className="header-bottom">
-          <div className="quick-links">
-            <a href="#" className="quick-link">
-              <span className="badge">-50%</span> Sản Deal Online
+        <div className={styles.header_bottom}>
+          <div className={styles.quick_links}>
+            <a href="#" className={styles.quick_link}>
+              <span className={styles.badge}>-50%</span> Sản Deal Online
             </a>
-            <a href="#" className="quick-link">
+            <a href="#" className={styles.quick_link}>
               👶 Ghế ô tô cho bé
             </a>
-            <a href="#" className="quick-link">
+            <a href="#" className={styles.quick_link}>
               💍 Sim du lịch
             </a>
-            <a href="#" className="quick-link">
+            <a href="#" className={styles.quick_link}>
               🧊 Máy nước nóng từ 2.29 triệu
             </a>
-            <a href="#" className="quick-link">
+            <a href="#" className={styles.quick_link}>
               📍 Chọn khu vực để xem ưu đãi ▼
             </a>
           </div>
@@ -65,80 +67,85 @@ export default function DanhMuc() {
       </header>
 
       {/* Main Content */}
-      <main className="main-content">
-        <div className="breadcrumb">
-          <button onClick={() => navigate("/")} className="breadcrumb-link">
+      <main className={styles.main_content}>
+        <div className={styles.breadcrumb}>
+          <button
+            onClick={() => navigate("/")}
+            className={styles.breadcrumb_link}
+          >
             Trang chủ
           </button>
-          <span className="breadcrumb-separator">›</span>
-          <span className="breadcrumb-current">Danh mục</span>
+          <span className={styles.breadcrumb_separator}>›</span>
+          <span className={styles.breadcrumb_current}>Danh mục</span>
         </div>
 
-        <h1 className="page-title">Danh mục sản phẩm</h1>
+        <h1 className={styles.page_title}>Danh mục sản phẩm</h1>
 
-        <div className="categories-grid">
+        <div className={styles.categories_grid}>
           {categories.map((category) => (
-            <div key={category.id} className="category-card">
-              <div className="category-icon">{category.icon}</div>
-              <h3 className="category-name">{category.name}</h3>
-              <p className="category-count">1,234 sản phẩm</p>
+            <div key={category.id} className={styles.category_card}>
+              <div className={styles.category_icon}>{category.icon}</div>
+              <h3 className={styles.category_name}>{category.name}</h3>
+              <p className={styles.category_count}>1,234 sản phẩm</p>
             </div>
           ))}
         </div>
 
         {/* Featured Categories */}
-        <section className="featured-categories">
-          <h2 className="section-title">Danh mục nổi bật</h2>
-          <div className="featured-grid">
-            <div className="featured-card large">
-              <div className="featured-image">
+        <section className={styles.featured_categories}>
+          <h2 className={styles.section_title}>Danh mục nổi bật</h2>
+          <div className={styles.featured_grid}>
+            <div
+              className={`${styles.featured_card} ${styles.featured_card_large}`}
+            >
+              <div className={styles.featured_image}>
                 <img
                   src="https://via.placeholder.com/300x250/f0f0f0/999999?text=iPhone"
                   alt="iPhone"
                 />
               </div>
-              <div className="featured-info">
+              <div className={styles.featured_info}>
                 <h3>iPhone</h3>
-                <p className="featured-count">2,156 sản phẩm</p>
+                <p className={styles.featured_count}>2,156 sản phẩm</p>
               </div>
             </div>
 
-            <div className="featured-card">
-              <div className="featured-image">
+            <div className={styles.featured_card}>
+              <div className={styles.featured_image}>
                 <img
                   src="https://via.placeholder.com/200x150/f0f0f0/999999?text=Samsung"
                   alt="Samsung"
                 />
               </div>
-              <div className="featured-info">
+              <div className={styles.featured_info}>
                 <h3>Samsung</h3>
-                <p className="featured-count">1,892 sản phẩm</p>
+                <p className={styles.featured_count}>1,892 sản phẩm</p>
               </div>
             </div>
 
-            <div className="featured-card">
-              <div className="featured-image">
+            <div className={styles.featured_card}>
+              <div className={styles.featured_image}>
                 <img
                   src="https://via.placeholder.com/200x150/f0f0f0/999999?text=Laptop"
                   alt="Laptop"
                 />
               </div>
-              <div className="featured-info">
+              <div className={styles.featured_info}>
                 <h3>Laptop</h3>
-                <p className="featured-count">758 sản phẩm</p>
+                <p className={styles.featured_count}>758 sản phẩm</p>
               </div>
             </div>
 
-            <div className="featured-card">
-              <div className="featured-image">
+            <div className={styles.featured_card}>
+              <div className={styles.featured_image}>
                 <img
                   src="https://via.placeholder.com/200x150/f0f0f0/999999?text=Phukien"
                   alt="Phụ kiện"
                 />
               </div>
-              <div className="featured-info">
+              <div className={styles.featured_info}>
                 <h3>Phụ kiện</h3>
-                <p className="featured-count">5,234 sản phẩm</p>
+                <p className={styles.featured_count}>5,234 sản phẩm</p>
               </div>
             </div>
           </div>
