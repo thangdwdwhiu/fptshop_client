@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
-import styles from "./DanhMuc.module.css";
+import styles from "./Category.module.css";
 
-export default function DanhMuc() {
+export default function Category() {
   const navigate = useNavigate();
 
   const categories = [
@@ -83,7 +83,25 @@ export default function DanhMuc() {
 
         <div className={styles.categories_grid}>
           {categories.map((category) => (
-            <div key={category.id} className={styles.category_card}>
+            <div
+              key={category.id}
+              className={styles.category_card}
+              onClick={() => {
+                const categoryMap = {
+                  iPhone: "iphone",
+                  Samsung: "samsung",
+                  Laptop: "laptop",
+                  iPad: "ipad",
+                };
+                const categorySlug = categoryMap[category.name];
+                if (categorySlug) {
+                  navigate(`/products/${categorySlug}`);
+                } else {
+                  navigate("/products");
+                }
+              }}
+              style={{ cursor: "pointer" }}
+            >
               <div className={styles.category_icon}>{category.icon}</div>
               <h3 className={styles.category_name}>{category.name}</h3>
               <p className={styles.category_count}>1,234 sản phẩm</p>
@@ -97,6 +115,8 @@ export default function DanhMuc() {
           <div className={styles.featured_grid}>
             <div
               className={`${styles.featured_card} ${styles.featured_card_large}`}
+              onClick={() => navigate("/products/iphone")}
+              style={{ cursor: "pointer" }}
             >
               <div className={styles.featured_image}>
                 <img
@@ -110,7 +130,11 @@ export default function DanhMuc() {
               </div>
             </div>
 
-            <div className={styles.featured_card}>
+            <div
+              className={styles.featured_card}
+              onClick={() => navigate("/products/samsung")}
+              style={{ cursor: "pointer" }}
+            >
               <div className={styles.featured_image}>
                 <img
                   src="https://via.placeholder.com/200x150/f0f0f0/999999?text=Samsung"
@@ -123,7 +147,11 @@ export default function DanhMuc() {
               </div>
             </div>
 
-            <div className={styles.featured_card}>
+            <div
+              className={styles.featured_card}
+              onClick={() => navigate("/products/laptop")}
+              style={{ cursor: "pointer" }}
+            >
               <div className={styles.featured_image}>
                 <img
                   src="https://via.placeholder.com/200x150/f0f0f0/999999?text=Laptop"
