@@ -8,6 +8,7 @@ import { AuthProvider } from "./context/AuthContext.jsx";
 import 'bootstrap-icons/font/bootstrap-icons.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import DanhMuc from "./Pages/danhmuc/DanhMuc.jsx";
+import Login from "./Pages/login/Login.jsx";
 
 
 createRoot(document.getElementById("root")).render(
@@ -19,6 +20,7 @@ createRoot(document.getElementById("root")).render(
                     <Route path="/" element={<App />} >
                           <Route index element={<TrangChu />} />
                           <Route path="/danhmuc" element={<DanhMuc />} />
+                          <Route path="/login" element={<Login />} />
                     </Route>
 
               </Routes>
