@@ -18,7 +18,7 @@ export default function Home() {
           <div className={styles.header_nav}>
             <button
               className={styles.category_btn}
-              onClick={() => navigate("/danhmuc")}
+              onClick={() => navigate("/category")}
             >
               ☰ Danh mục
             </button>

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from "./Login.module.css";
-import LoginForm from "./LoginForm";
-import RegisterForm from "./RegisterForm";
+import LoginForm from "./components/LoginForm";
+import RegisterForm from "./components/RegisterForm";
 
 export default function LoginPage() {
   const [activeTab, setActiveTab] = useState("register");

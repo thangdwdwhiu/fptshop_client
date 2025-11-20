@@ -17,7 +17,7 @@ createRoot(document.getElementById("root")).render(
         <Routes>
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
-            <Route path="/danh-muc" element={<Category />} />
+            <Route path="/category" element={<Category />} />
             <Route path="/login" element={<Login />} />
           </Route>
         </Routes>
